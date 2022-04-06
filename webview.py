@@ -100,6 +100,7 @@ class RpiServer(HTTPServer):
         self.activity_lock = Lock()
         self.data_lock = Lock()
         self.temp_history: list[dict] = []
+        self.max_temp_count = 5
 
     def start(self):
         with self.activity_lock:
@@ -136,6 +137,8 @@ class RpiServer(HTTPServer):
                 time.sleep(1.0)
                 with self.data_lock:
                     self.temp_history.append({'time': time.time(), 'temps': rpi.get_temperatures()})
+                    if len(self.temp_history) > self.max_temp_count:
+                        self.temp_history = self.temp_history[-self.max_temp_count:]
 
 
 def main():
