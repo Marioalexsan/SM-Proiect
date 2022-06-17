@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ro">
+    <head>
+        <title>SM Proiect</title>
+        <meta charset="utf-8"/>
+        <script src="layout.js"></script>
+        <link rel="stylesheet" href="layout.css">
+    </head>
+    <body>
+        <div id="layout-body-background-container"></div>
+
+        <div id="layout-flexbox-flow">
+            <header>
+                <div id="layout-header-navbutton">
+                    <img src="three-bars.png" width="40" height="40">
+                </div>
+                
+                <div id="layout-header-logo">
+                    <span>
+                        SM proiect
+                    </span>
+                </div>
+            </header>
+    
+            <div id="layout-flexbox-panels">
+                <nav>
+                    <a href="/">Main page</a>
+                </nav>
+
+                <main>
+                    <%- body %>
+                </main>
+            </div>
+    
+            <footer>
+                SM Proiect 2022, 1308B Miron Alexandru
+            </footer>
+        </div>
+    </body>
+</html>
